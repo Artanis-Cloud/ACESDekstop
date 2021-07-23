@@ -40,6 +40,7 @@
                         <table id="table_data" class="table table-striped table-bordered second" style="width:100%">
                             <thead style="text-align: center;">
                                 <tr>
+                                    <th>Bil</th>
                                     <th>User Name</th>
                                     <th>Data & Time</th>
                                     <th>Subject</th>
@@ -49,6 +50,7 @@
                             <tbody style="text-align: center;">
                                 @foreach ($feedback as $data)
                                     <tr>
+                                        <td>{{ $data->id }}</td>
                                         <td>{{ $data->user->name }}</td>
                                         <td>{{ $data->created_at }}</td>
                                         <td>{{ $data->subject }}</td>
