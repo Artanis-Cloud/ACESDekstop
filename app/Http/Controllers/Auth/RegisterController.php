@@ -10,6 +10,8 @@ use App\Models\Districts;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -50,26 +52,26 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
 
-     public function showRegistrationForm()
-     {
-         $districts = Districts:: get();
-         // dd($districts);
-         return view('auth.register', compact('districts'));
-     }
+    public function showRegistrationForm()
+    {
+        $districts = Districts::get();
+        // dd($districts);
+        return view('auth.register', compact('districts'));
+    }
 
     protected function validator(array $data)
     {
-      return Validator::make($data, [
-          'name' => ['required', 'string', 'max:255'],
-          'ic_number' => ['required', 'string', 'max:12', 'min:12','unique:users'],
-          'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-          'phone' => ['required', 'string', 'max:11', 'min:10'],
-          'address' => ['required', 'string'],
-          'postcode' => ['required', 'string', 'max:5', 'min:5'],
-          'state' => ['required', 'string'],
-          'district' => ['required', 'string'],
-          'password' => ['required', 'string', 'min:8', 'confirmed'],
-      ]);
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'ic_number' => ['required', 'numeric', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'max:11', 'min:10'],
+            'address' => ['required', 'string'],
+            'postcode' => ['required', 'string', 'max:5', 'min:5'],
+            'state' => ['required', 'string'],
+            'district' => ['required', 'string'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
     }
 
     /**
@@ -93,6 +95,15 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'is_active' => 1,
             'is_student' => 1,
+            'is_approved' => 0,
         ]);
+    }
+
+    public function register(Request $request)
+    {
+      // dd($request->all());
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+		return redirect('/login')->with('error','Account registered. Please wait for Admin Approval.');
     }
 }

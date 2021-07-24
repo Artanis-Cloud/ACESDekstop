@@ -218,6 +218,11 @@
                                     </li>
 
                                     <li class="nav-item ">
+                                        <a class="nav-link" href="{{ route('admin.others.user-list.approval') }}"><i
+                                                class="fa fa-users" aria-hidden="true"></i>Users Approval <br> List</a>
+                                    </li>
+
+                                    <li class="nav-item ">
                                         <a class="nav-link"
                                             href="{{ route('admin.others.user-list.progress-lesson') }}"><i
                                                 class="fa fa-users" aria-hidden="true"></i>Users Progress <br> Lesson</a>

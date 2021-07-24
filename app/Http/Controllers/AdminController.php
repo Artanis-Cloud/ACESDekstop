@@ -291,7 +291,6 @@ class AdminController extends Controller
 
     public function viewStudentLessonProgress()
     {
-
         $users = DB::table('users')
             ->select(
                 'users.id',
@@ -316,30 +315,6 @@ class AdminController extends Controller
 
     public function viewStudentQuizProgress()
     {
-
-        // $users = DB::table('users')
-        //     ->select(
-        //         'users.id',
-        //         'users.name',
-        //         'users.email',
-        //         'users.ic_number',
-        //         'users.state',
-        //         'users.district',
-        //         'users.school',
-        //         'users.lesson_progress',
-        //         'users.quiz_progress',
-        //         'users.game_progress',
-        //         'students_lessons.lesson_id',
-        //         'students_quizes.quiz_id',
-        //         'students_quizes.result_status',
-        //         'students_games.game_id'
-        //     )
-        //     ->join("students", "students.user_id", "=", "users.id")
-        //     ->leftJoin("students_games", "students_games.student_id", "=", "students.id")
-        //     ->leftJoin("students_lessons", "students_lessons.student_id", "=", "students.id")
-        //     ->leftJoin("students_quizes", "students_quizes.student_id", "=", "students.id")
-        //     ->paginate(100);
-
         $users = DB::table('users')
         ->select(
             'users.id',
@@ -475,5 +450,22 @@ class AdminController extends Controller
             'state14',
             'state15'
         ));
+    }
+
+    public function viewUserListApproval()
+    {
+        $users = User::where('is_approved', false)->get();
+
+        // dd($users);
+        return view('admin.others.user-list.approval', compact('users'));
+    }
+
+    public function approveUser(Request $request)
+    {
+        $user = User::findOrFail($request->id_activate);
+        $user->is_approved = 1;
+        $user->save();
+
+        return redirect()->route('admin.others.user-list.approval')->with("success", "User approved.");
     }
 }
