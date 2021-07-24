@@ -80,6 +80,8 @@
                                         @endif
                                         @if ($data->is_admin == 1)
                                             <td><span class="badge badge-pill badge-brand">Admin</span></td>
+                                        @elseif($data->is_trainer == 1)
+                                            <td><span class="badge badge-pill badge-danger">Trainer</span></td>
                                         @elseif($data->is_student == 1)
                                             <td><span class="badge badge-pill badge-primary">Student</span></td>
                                         @elseif($data->is_ecerdb_personnel == 1)
