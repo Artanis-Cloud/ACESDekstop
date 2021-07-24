@@ -212,10 +212,16 @@ class AdminController extends Controller
             $user->is_admin = 0;
             $user->is_ecerdb_personnel = 1;
             $user->is_student = 0;
+        } elseif ($request->role == "Trainer") {
+            $user->is_admin = 0;
+            $user->is_ecerdb_personnel = 0;
+            $user->is_student = 1;
+            $user->is_trainer = 1;
         } else {
             $user->is_admin = 0;
             $user->is_ecerdb_personnel = 0;
             $user->is_student = 1;
+            $user->is_trainer = 0;
         }
 
         $user->save();

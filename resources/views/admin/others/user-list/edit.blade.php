@@ -257,6 +257,9 @@
                                         <option value="Pelajar" {{ $user->is_student == 1 ? 'selected' : '' }}>Student
                                         </option>
 
+                                        <option value="Trainer" {{ $user->is_trainer == 1 ? 'selected' : '' }}>Trainer
+                                        </option>
+
                                     </select>
                                 </div>
                             </div>
