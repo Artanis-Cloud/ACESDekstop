@@ -71,6 +71,9 @@ class LoginController extends Controller
             {
               return redirect('/login')->with("error", "Your account has been deactived. Please contact the admin for account activation.");
             }
+            if ($user_active->is_approved == 0) {
+                return redirect('/login')->with("error", "Your account has not been approved. Please contact the admin for account approval.");
+            }
 
            if ($this->attemptLogin($request)) {
                return $this->sendLoginResponse($request);

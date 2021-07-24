@@ -220,19 +220,24 @@
                                     <li class="nav-item ">
                                         <a class="nav-link"
                                             href="{{ route('admin.others.user-list.progress-lesson') }}"><i
-                                                class="fa fa-users" aria-hidden="true"></i>Users Progress <br> Lesson</a>
+                                                class="fas fa-laptop" aria-hidden="true"></i>Lesson Progress</a>
                                     </li>
 
                                     <li class="nav-item ">
                                         <a class="nav-link"
                                             href="{{ route('admin.others.user-list.progress-quiz') }}"><i
-                                                class="fa fa-users" aria-hidden="true"></i>Users Progress <br> Quiz</a>
+                                                class="far fa-clock" aria-hidden="true"></i>Quiz Progress</a>
                                     </li>
 
                                     <li class="nav-item ">
                                         <a class="nav-link"
                                             href="{{ route('admin.others.user-list.progress-game') }}"><i
-                                                class="fa fa-users" aria-hidden="true"></i>Users Progress  <br> Game</a>
+                                                class="fas fa-gamepad" aria-hidden="true"></i>Game Progress</a>
+                                    </li>
+
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="{{ route('admin.others.user-list.approval') }}"><i
+                                                class="far fa-thumbs-up" aria-hidden="true"></i>Approval List</a>
                                     </li>
 
                                     <li class="nav-item ">

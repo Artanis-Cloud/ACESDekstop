@@ -202,6 +202,10 @@ Route::middleware('student')->group(function () {
 
     Route::get('/admin/others/user-list/list', [App\Http\Controllers\AdminController::class, 'viewUserList'])->name('admin.others.user-list.list');
 
+    Route::get('/admin/others/user-list/approval', [App\Http\Controllers\AdminController::class, 'viewUserListApproval'])->name('admin.others.user-list.approval');
+
+    Route::post('/admin/others/user-list/approve', [App\Http\Controllers\AdminController::class, 'approveUser'])->name('admin.others.user-list.approve');
+
     Route::get('/admin/others/user-list/edit/{id}', [App\Http\Controllers\AdminController::class, 'editUserList'])->name('admin.others.user-list.edit');
 
     Route::post('/admin/others/user-list/edit/updating', [App\Http\Controllers\AdminController::class, 'updateUserList'])->name('admin.others.user-list.edit.updating');
