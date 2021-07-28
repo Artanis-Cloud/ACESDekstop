@@ -59,8 +59,8 @@
                                         <td>{{ $data->state }}</td>
                                         <td>{{ $data->district }}</td>
                                         <td>{{ $data->quiz_progress }}</td>
-                                        @if ($data->quiz_id)
-                                            <td>{{ $data->quiz_id ?? '-' }}</td>
+                                        @if (!$data->quiz_id)
+                                            <td> - </td>
                                         @elseif($data->quiz_id == '1')
                                             <td>1. Introduction</td>
                                         @elseif($data->quiz_id == '3')
