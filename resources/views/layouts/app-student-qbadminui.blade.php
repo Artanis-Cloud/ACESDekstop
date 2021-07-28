@@ -174,8 +174,13 @@
 
                         <li class="px-3 side-menu-item" style="background-image: url({{asset('concept/images/galaxy/button_main.png')}}); background-position: 40% 40%;background-repeat: no-repeat;background-size: cover; margin-bottom: 4%;"><a href="{{ route('activities.leaderboard') }}" class="py-2 w-100" >&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-trophy" aria-hidden="true"></i>&nbspLEADERBOARD</a></li>
 
+                        <li class="px-3 side-menu-item" style="background-image: url({{asset('concept/images/galaxy/button_main.png')}}); background-position: 40% 40%;background-repeat: no-repeat;background-size: cover;"><a href="{{route('user.progress')}}" class="py-2 w-100">&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-tasks" aria-hidden="true"></i>&nbspPROGRESS LIST</a></li>
+
+                        <div style="padding: 5px;"></div>
+
                         <li class="px-3 side-menu-item" style="background-image: url({{asset('concept/images/galaxy/button_main.png')}}); background-position: 40% 40%;background-repeat: no-repeat;background-size: cover;"><a href="{{route('others.feedback')}}" class="py-2 w-100">&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-comments" aria-hidden="true"></i>&nbspFEEDBACK</a></li>
                         <div style="padding: 5px;"></div>
+
                         <li class="px-3 side-menu-item" style="background-image: url({{asset('concept/images/galaxy/button_main.png')}}); background-position: 40% 40%;background-repeat: no-repeat;background-size: cover;"><a href="{{route('user.faq')}}" class="py-2 w-100">&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-question" aria-hidden="true"></i>&nbspFAQ</a></li>
 
 
