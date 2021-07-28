@@ -40,36 +40,45 @@
                 }
             }
 
-            .accordion {
-                background-color: #011329;
-                color: #fff;
-                cursor: pointer;
-                padding: 10px;
-                width: 100%;
-                border: none;
-                text-align: left;
-                outline: none;
-                font-size: 100%;
-                transition: 0.4s;
-                font-size: 12px;
-            }
+            /* Style the tab */
+        .tab {
+          overflow: hidden;
+          /* border: 1px solid #ccc; */
+          background-color: #13d6f5;
+        }
 
-            .active,
-            .accordion:hover {
-                background-color: #02142c;
-            }
+        /* Style the buttons inside the tab */
+        .tab button {
+          background-color: inherit;
+          float: left;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 5px 5px;
+          transition: 0.3s;
+          font-size: 15px;
+          color: #fff;
+        }
 
-            .panel {
-                padding-top: 5px;
-                padding: 5px;
-                /* padding: 0 18px; */
-                display: none;
-                background-color: #02142c4d;
-                /* overflow: hidden; */
-                color: white;
-                font-size: 100%;
-            }
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+          background-color: #ddd;
+        }
 
+        /* Create an active/current tablink class */
+        .tab button.active {
+          background-color: #fff;
+          color: #000;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+          display: none;
+          padding: 6px 12px;
+          /* border: 1px solid #ccc; */
+          border-top: none;
+          background: #011228;
+        }
         </style>
     </head>
 
@@ -88,7 +97,7 @@
 
 
                         <div class="row" style="padding-top: 10px;">
-                            <div class="col-md-2">
+                            <div class="col-md-1">
 
                             </div>
                             <div class="col-md" style="overflow-y: auto; height: 350px;">
@@ -114,18 +123,22 @@
                                         </div>
                                     </div>
                                 @endif
-                                <button class="accordion">IMPORTANT NOTICE! (Please Read)</button>
-                                <div class="panel">
-                                    <p>This Progress are progress that have been captured by the system. If the chapter is
-                                        not found in the progress,</p>
-                                    <p>it means that you have not done the chapter yet.</p>
-                                </div>
 
-                                <button class="accordion">Lesson Progress</button>
-                                <div class="panel">
+
+                                <h5 style="color: red">IMPORTANT NOTICE! (Please Read)</h5>
+                                  <p style="color: white;">This Progress are progress that have been captured by the system. If the chapter is
+                                      not found in the progress, it means that you have not done the chapter yet.</p>
+
+                                  <div class="tab">
+                                    <button class="tablinks" onclick="openCity(event, 'Lesson')">Lesson Progress</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Quiz')">Quiz Progress</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Game')">Game Progress</button>
+                                  </div>
+
+                                  <div id="Lesson" class="tabcontent">
                                     <div class="table-responsive">
                                         <table id="table_data_list_progress"
-                                            class="table table-striped table-bordered second" style="width:100%">
+                                            class="table table-striped table-bordered second" style="width:100%; overflow: auto; height: 100px;">
                                             <thead style="text-align: center; color:white;">
                                                 <tr>
                                                     <th>NAME</th>
@@ -174,13 +187,12 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                  </div>
 
-                                <button class="accordion">Quiz Progress</button>
-                                <div class="panel">
+                                  <div id="Quiz" class="tabcontent">
                                     <div class="table-responsive">
                                         <table id="table_data_list_progress"
-                                            class="table table-striped table-bordered second" style="width:100%">
+                                            class="table table-striped table-bordered second" style="width:100%; overflow: auto; height: 100px;">
                                             <thead style="text-align: center; color:white;">
                                                 <tr>
                                                     <th>NAME</th>
@@ -231,13 +243,12 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                  </div>
 
-                                <button class="accordion">Game Progress</button>
-                                <div class="panel">
+                                  <div id="Game" class="tabcontent">
                                     <div class="table-responsive">
                                         <table id="table_data_list_progress"
-                                            class="table table-striped table-bordered second" style="width:100%">
+                                            class="table table-striped table-bordered second" style="width:100%; overflow: auto; height: 100px;">
                                             <thead style="text-align: center; color:white;">
                                                 <tr>
                                                     <th>NAME</th>
@@ -286,10 +297,10 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                  </div>
 
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-1">
 
                             </div>
                         </div>
@@ -312,6 +323,7 @@
             <span style="color: #fff;text-transform: uppercase;">Please rotate your device to view ACES WEB APP</span>
         </div>
 
+
         <script>
             var acc = document.getElementsByClassName("accordion");
             var i;
@@ -327,6 +339,22 @@
                     }
                 });
             }
+        </script>
+
+        <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
         </script>
     </body>
 
