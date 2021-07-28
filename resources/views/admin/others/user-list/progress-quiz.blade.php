@@ -28,7 +28,8 @@
             <div class="card" style="padding: 10px;">
 
                 <div style="padding: 5px;"></div>
-                <h2 class="card-header" style="text-align: center;"><i class="fa fa-users" aria-hidden="true"></i>Users Quiz Progress List
+                <h2 class="card-header" style="text-align: center;"><i class="fa fa-users" aria-hidden="true"></i>Users Quiz
+                    Progress List
                 </h2>
                 <div class="p-0 card-body">
                     <div style="padding: 10px;"></div>
@@ -58,8 +59,30 @@
                                         <td>{{ $data->state }}</td>
                                         <td>{{ $data->district }}</td>
                                         <td>{{ $data->quiz_progress }}</td>
-                                        <td>{{ $data->quiz_id ?? '-'}}</td>
-                                        <td>{{ $data->result_status ?? '-'}}</td>
+                                        @if ($data->quiz_id)
+                                            <td>{{ $data->quiz_id ?? '-' }}</td>
+                                        @elseif($data->quiz_id == '1')
+                                            <td>1</td>
+                                        @elseif($data->quiz_id == '3')
+                                            <td>2</td>
+                                        @elseif($data->quiz_id == '4')
+                                            <td>3</td>
+                                        @elseif($data->quiz_id == '5')
+                                            <td>4</td>
+                                        @elseif($data->quiz_id == '6')
+                                            <td>5</td>
+                                        @elseif($data->quiz_id == '7')
+                                            <td>6</td>
+                                        @elseif($data->quiz_id == '8')
+                                            <td>7</td>
+                                        @elseif($data->quiz_id == '9')
+                                            <td>8</td>
+                                        @elseif($data->quiz_id == '10')
+                                            <td>9</td>
+                                        @elseif($data->quiz_id == '11')
+                                            <td>10</td>
+                                        @endif
+                                        <td>{{ $data->result_status ?? '-' }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
