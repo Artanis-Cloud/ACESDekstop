@@ -62,25 +62,25 @@
                                         @if ($data->quiz_id)
                                             <td>{{ $data->quiz_id ?? '-' }}</td>
                                         @elseif($data->quiz_id == '1')
-                                            <td>1</td>
+                                            <td>1. Introduction</td>
                                         @elseif($data->quiz_id == '3')
-                                            <td>2</td>
+                                            <td>2. AR | VR</td>
                                         @elseif($data->quiz_id == '4')
-                                            <td>3</td>
+                                            <td>4. IOT</td>
                                         @elseif($data->quiz_id == '5')
-                                            <td>4</td>
+                                            <td>5. Big Data</td>
                                         @elseif($data->quiz_id == '6')
-                                            <td>5</td>
+                                            <td>10. Cyber Security</td>
                                         @elseif($data->quiz_id == '7')
-                                            <td>6</td>
+                                            <td>6. Cloud Computing</td>
                                         @elseif($data->quiz_id == '8')
-                                            <td>7</td>
+                                            <td>3. Additive Manufacturing</td>
                                         @elseif($data->quiz_id == '9')
-                                            <td>8</td>
+                                            <td>7. Advanced Simulation</td>
                                         @elseif($data->quiz_id == '10')
-                                            <td>9</td>
+                                            <td>9. Universal Integration</td>
                                         @elseif($data->quiz_id == '11')
-                                            <td>10</td>
+                                            <td>8. Autonamous Robot</td>
                                         @endif
                                         <td>{{ $data->result_status ?? '-' }}</td>
                                     </tr>
