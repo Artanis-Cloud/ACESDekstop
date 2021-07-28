@@ -63,23 +63,23 @@
                                         @elseif($data->game_id == '1')
                                             <td>1. Introduction</td>
                                         @elseif($data->game_id == '2')
-                                            <td>2. Circuit 2</td>
+                                            <td>2. Circuit 1</td>
                                         @elseif($data->game_id == '4')
-                                            <td>4. Circuit 4</td>
+                                            <td>4. Circuit 3</td>
                                         @elseif($data->game_id == '5')
-                                            <td>5. Circuit 5</td>
+                                            <td>5. Circuit 4</td>
                                         @elseif($data->game_id == '10')
-                                            <td>10. Circuit 10</td>
+                                            <td>10. Circuit 9</td>
                                         @elseif($data->game_id == '6')
-                                            <td>6. Circuit 6</td>
+                                            <td>6. Circuit 5</td>
                                         @elseif($data->game_id == '3')
-                                            <td>3. Circuit 3</td>
+                                            <td>3. Circuit 2</td>
                                         @elseif($data->game_id == '7')
-                                            <td>7. Circuit 7</td>
+                                            <td>7. Circuit 6</td>
                                         @elseif($data->game_id == '9')
-                                            <td>9. Circuit 9</td>
+                                            <td>9. Circuit 8</td>
                                         @elseif($data->game_id == '8')
-                                            <td>8. Circuit 8</td>
+                                            <td>8. Circuit 7</td>
                                         @endif
                                     </tr>
                                 @endforeach
