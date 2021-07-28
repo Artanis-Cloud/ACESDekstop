@@ -106,6 +106,9 @@ Route::middleware('student')->group(function () {
 
     Route::get('/quiz/result-quiz/{id}', [App\Http\Controllers\QuizController::class, 'resultQuiz'])->name('quiz.result-quiz');
 
+    //User Progress
+    Route::get('/user/progress', [App\Http\Controllers\UserController::class, 'progress'])->name('user.progress');
+
     //FAQ
     Route::get('/user/faq', [App\Http\Controllers\UserController::class, 'faq'])->name('user.faq');
     //student
