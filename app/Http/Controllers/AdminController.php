@@ -376,15 +376,15 @@ class AdminController extends Controller
         $student_fail = Student_Quiz::where('result_status', 'Gagal')->count();
 
         $lesson1 = Student_Lesson::where('lesson_id', 1)->count();
-        $lesson3 = Student_Lesson::where('lesson_id', 3)->count();
-        $lesson4 = Student_Lesson::where('lesson_id', 4)->count();
-        $lesson5 = Student_Lesson::where('lesson_id', 5)->count();
-        $lesson6 = Student_Lesson::where('lesson_id', 6)->count();
-        $lesson7 = Student_Lesson::where('lesson_id', 7)->count();
-        $lesson8 = Student_Lesson::where('lesson_id', 8)->count();
-        $lesson9 = Student_Lesson::where('lesson_id', 9)->count();
-        $lesson10 = Student_Lesson::where('lesson_id', 10)->count();
-        $lesson11 = Student_Lesson::where('lesson_id', 11)->count();
+        $lesson2 = Student_Lesson::where('lesson_id', 3)->count();
+        $lesson3 = Student_Lesson::where('lesson_id', 4)->count();
+        $lesson4 = Student_Lesson::where('lesson_id', 5)->count();
+        $lesson5 = Student_Lesson::where('lesson_id', 6)->count();
+        $lesson6 = Student_Lesson::where('lesson_id', 7)->count();
+        $lesson7 = Student_Lesson::where('lesson_id', 8)->count();
+        $lesson8 = Student_Lesson::where('lesson_id', 9)->count();
+        $lesson9 = Student_Lesson::where('lesson_id', 10)->count();
+        $lesson10 = Student_Lesson::where('lesson_id', 11)->count();
 
         $game1 = Student_Game::where('game_id', 1)->count();
         $game2 = Student_Game::where('game_id', 2)->count();
