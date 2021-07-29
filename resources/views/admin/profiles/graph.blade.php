@@ -351,7 +351,7 @@ var barConfig = new Chart(bar, {
                   'Lesson 7', 'Lesson 8', 'Lesson 9', 'Lesson 10'],
         datasets: [{
             label: 'Number of Student',
-            data: [{{ $lesson1 }},{{ $lesson3 }},{{ $lesson4 }},{{ $lesson5 }},{{ $lesson6 }},{{ $lesson7 }},{{ $lesson8 }},{{ $lesson9 }},{{ $lesson10 }},{{ $lesson11 }} ],
+            data: [{{ $lesson1 }},{{ $lesson2 }},{{ $lesson3 }},{{ $lesson4 }},{{ $lesson5 }},{{ $lesson6 }},{{ $lesson7 }},{{ $lesson8 }},{{ $lesson9 }},{{ $lesson10 }} ],
             backgroundColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
