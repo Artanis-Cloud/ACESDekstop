@@ -712,4 +712,63 @@
     });
 </script>
 
+<!-- Script -->
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        // DataTable
+        $('#table_data_audit').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "buttons": [
+                'excel', 'pdf', 'print'
+            ],
+            "scrollX": true,
+            "ajax": "{{ route('admin.others.audit-trail.audit-trail-get') }}",
+            "columns": [{
+                    data: 'id'
+                },
+                {
+                    data: 'name'
+                },
+                {
+                    data: 'ic_number'
+                },
+                {
+                    data: 'email'
+                },
+                {
+                    data: 'phone'
+                },
+                {
+                    data: 'school'
+                },
+                {
+                    data: 'district'
+                },
+                {
+                    data: 'ip_address'
+                },
+                {
+                    data: 'created_at'
+                },
+                {
+                    data: 'auditable_type'
+                },
+                {
+                    data: 'event'
+                },
+                {
+                    data: 'old_values'
+                },
+                {
+                    data: 'new_values'
+                },
+                // { data: 'updated_at' },
+            ]
+        });
+
+    });
+</script>
+
 </html>
