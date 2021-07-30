@@ -155,8 +155,9 @@ class AdminController extends Controller
 
     public function viewUserList()
     {
-        $user_list = User::with('student')->get();
-        // dd($user_list);
+        dd(User::lazy());
+        $user_list = User::with('student')->lazy();
+        dd($user_list);
         foreach ($user_list as $data) {
             # code...
             if ($data->student) {
@@ -316,24 +317,23 @@ class AdminController extends Controller
 
         // dd($users);
         return view('admin.others.user-list.progress-lesson', compact('users'));
-
     }
 
     public function viewStudentQuizProgress()
     {
         $users = DB::table('users')
-        ->select(
-            'users.id',
-            'users.name',
-            'users.email',
-            'users.ic_number',
-            'users.state',
-            'users.district',
-            'users.school',
-            'users.quiz_progress',
-            'students_quizes.quiz_id',
-            'students_quizes.result_status',
-        )
+            ->select(
+                'users.id',
+                'users.name',
+                'users.email',
+                'users.ic_number',
+                'users.state',
+                'users.district',
+                'users.school',
+                'users.quiz_progress',
+                'students_quizes.quiz_id',
+                'students_quizes.result_status',
+            )
             ->distinct('students_quizes.quiz_id')
             ->join("students", "students.user_id", "=", "users.id")
             ->leftJoin("students_quizes", "students_quizes.student_id", "=", "students.id")
@@ -347,17 +347,17 @@ class AdminController extends Controller
     {
 
         $users = DB::table('users')
-        ->select(
-            'users.id',
-            'users.name',
-            'users.email',
-            'users.ic_number',
-            'users.state',
-            'users.district',
-            'users.school',
-            'users.game_progress',
-            'students_games.game_id',
-        )
+            ->select(
+                'users.id',
+                'users.name',
+                'users.email',
+                'users.ic_number',
+                'users.state',
+                'users.district',
+                'users.school',
+                'users.game_progress',
+                'students_games.game_id',
+            )
             ->distinct('students_games.game_id')
             ->join("students", "students.user_id", "=", "users.id")
             ->leftJoin("students_games", "students_games.student_id", "=", "students.id")
@@ -473,5 +473,105 @@ class AdminController extends Controller
         $user->save();
 
         return redirect()->route('admin.others.user-list.approval')->with("success", "User approved.");
+    }
+
+    public function viewAudits()
+    {
+        return view('admin.others.audit-trail.audit-trail');
+    }
+    /*
+   AJAX request
+   */
+    public function getAudits(Request $request)
+    {
+
+        ## Read value
+        $draw = $request->get('draw');
+        $start = $request->get("start");
+        $rowperpage = $request->get("length"); // Rows display per page
+
+        $columnIndex_arr = $request->get('order');
+        $columnName_arr = $request->get('columns');
+        $order_arr = $request->get('order');
+        $search_arr = $request->get('search');
+
+        $columnIndex = $columnIndex_arr[0]['column']; // Column index
+        $columnName = $columnName_arr[$columnIndex]['data']; // Column name
+        $columnSortOrder = $order_arr[0]['dir']; // asc or desc
+        $searchValue = $search_arr['value']; // Search value
+
+        // Total records
+        $totalRecords = Audit::select('count(*) as allcount')->count();
+        $totalRecordswithFilter = Audit::select('count(*) as allcount')->where('event', 'like', '%' . $searchValue . '%')->count();
+
+        // Fetch records
+        $records = Audit::orderBy($columnName, $columnSortOrder)
+            ->where('audits.event', 'like', '%' . $searchValue . '%')
+            ->select('audits.*')
+            ->skip($start)
+            ->take($rowperpage)
+            ->get();
+
+        $data_arr = array();
+
+        foreach ($records as $record) {
+            $id = $record->id ?? '-';
+            $user_type = $record->user_type ?? '-';
+            $user_id = $record->user_id ?? '-';
+
+            $name = $record->user->name ?? '-';
+            $ic_number = $record->user->ic_number ?? '-';
+            $email = $record->user->email ?? '-';
+            $phone = $record->user->phone ?? '-';
+            $school = $record->user->school ?? '-';
+            $district = $record->user->district ?? '-';
+
+            $event = $record->event ?? '-';
+            $auditable_type = $record->auditable_type ?? '-';
+            $auditable_id = $record->auditable_id ?? '-';
+            $old_values = $record->old_values ?? '-';
+            $new_values = $record->new_values ?? '-';
+            $url = $record->url ?? '-';
+            $ip_address = $record->ip_address ?? '-';
+            $user_agent = $record->user_agent ?? '-';
+            $tags = $record->tags ?? '-';
+            $created_at = $record->created_at ?? '-';
+            $updated_at = $record->updated_at ?? '-';
+
+            $data_arr[] = array(
+                "id" => $id,
+                "user_type" => $user_type,
+                "user_id" => $user_id,
+
+                "name" => $name,
+                "ic_number" => $ic_number,
+                "email" => $email,
+                "phone" => $phone,
+                "school" => $school,
+                "district" => $district,
+
+                "event" => $event,
+                "auditable_type" => $auditable_type,
+                "auditable_id" => $auditable_id,
+                "old_values" => $old_values,
+                "new_values" => $new_values,
+                "url" => $url,
+                "ip_address" => $ip_address,
+                "user_agent" => $user_agent,
+                "tags" => $tags,
+                "created_at" => $created_at,
+                "updated_at" => $updated_at,
+            );
+        }
+
+        $response = array(
+            "draw" => intval($draw),
+            "iTotalRecords" => $totalRecords,
+            "iTotalDisplayRecords" => $totalRecordswithFilter,
+            "aaData" => $data_arr
+        );
+
+        echo json_encode($response);
+        exit;
     }
 }

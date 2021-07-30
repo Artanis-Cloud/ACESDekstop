@@ -239,8 +239,10 @@ Route::middleware('student')->group(function () {
 
     Route::get('/admin/profile/graph', [App\Http\Controllers\AdminController::class, 'viewGraph'])->name('admin.profiles.graph');
 
+    Route::get('/admin/others/audit/view', [App\Http\Controllers\AdminController::class, 'viewAudits'])->name('admin.others.audit-trail.audit-trail');
 
-    });
+    Route::get('/admin/others/audit/view/getAudits/', [App\Http\Controllers\AdminController::class, 'getAudits'])->name('admin.others.audit-trail.audit-trail-get');
+});
 
 });
 
