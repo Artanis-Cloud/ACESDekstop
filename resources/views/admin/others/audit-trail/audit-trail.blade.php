@@ -78,6 +78,10 @@
       $('#table_data_audit').DataTable({
          processing: true,
          serverSide: true,
+         buttons: [
+                'excel', 'pdf', 'print'
+         ],
+         scrollX : true,
          ajax: "{{route('admin.others.audit-trail.audit-trail-get')}}",
          columns: [
             { data: 'id' },
