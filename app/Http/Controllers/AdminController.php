@@ -155,9 +155,7 @@ class AdminController extends Controller
 
     public function viewUserList()
     {
-        dd(User::lazy());
-        $user_list = User::with('student')->lazy();
-        dd($user_list);
+        $user_list = User::with('student')->get();
         foreach ($user_list as $data) {
             # code...
             if ($data->student) {
