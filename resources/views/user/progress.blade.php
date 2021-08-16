@@ -169,17 +169,17 @@
                                                             <td>4. IOT</td>
                                                         @elseif($data->lesson_id == '5')
                                                             <td>5. Big Data</td>
-                                                        @elseif($data->lesson_id == '10')
-                                                            <td>10. Cyber Security</td>
                                                         @elseif($data->lesson_id == '6')
-                                                            <td>6. Cloud Computing</td>
-                                                        @elseif($data->lesson_id == '3')
-                                                            <td>3. Additive Manufacturing</td>
+                                                            <td>10. Cyber Security</td>
                                                         @elseif($data->lesson_id == '7')
-                                                            <td>7. Advanced Simulation</td>
-                                                        @elseif($data->lesson_id == '9')
-                                                            <td>9. Universal Integration</td>
+                                                            <td>6. Cloud Computing</td>
                                                         @elseif($data->lesson_id == '8')
+                                                            <td>3. Additive Manufacturing</td>
+                                                        @elseif($data->lesson_id == '9')
+                                                            <td>7. Advanced Simulation</td>
+                                                        @elseif($data->lesson_id == '10')
+                                                            <td>9. Universal Integration</td>
+                                                        @elseif($data->lesson_id == '11')
                                                             <td>8. Autonamous Robot</td>
                                                         @endif
                                                     </tr>
