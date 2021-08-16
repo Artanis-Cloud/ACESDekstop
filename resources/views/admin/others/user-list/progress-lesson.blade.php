@@ -61,26 +61,26 @@
                                         {{-- <td>{{ $data->lesson_id ?? '-'}}</td> --}}
                                         @if (!$data->lesson_id)
                                             <td> - </td>
-                                            @elseif($data->lesson_id == '1')
-                                                <td>1. Introduction</td>
-                                            @elseif($data->lesson_id == '2')
-                                                <td>2. AR | VR</td>
-                                            @elseif($data->lesson_id == '3')
-                                                <td>3. Additive Manufacturing</td>
-                                            @elseif($data->lesson_id == '4')
-                                                <td>4. IOT</td>
-                                            @elseif($data->lesson_id == '5')
-                                                <td>5. Big Data</td>
-                                            @elseif($data->lesson_id == '6')
-                                                <td>6. Cloud Computing</td>
-                                            @elseif($data->lesson_id == '10')
-                                                <td>7. Cyber Security</td>
-                                            @elseif($data->lesson_id == '7')
-                                                <td>9. Advanced Simulation</td>
-                                            @elseif($data->lesson_id == '9')
-                                                <td>8. Universal Integration</td>
-                                            @elseif($data->lesson_id == '8')
-                                                <td>10. Autonamous Robot</td>
+                                        @elseif($data->lesson_id == '1')
+                                            <td>1. Introduction</td>
+                                        @elseif($data->lesson_id == '2')
+                                            <td>2. AR | VR</td>
+                                        @elseif($data->lesson_id == '4')
+                                            <td>4. IOT</td>
+                                        @elseif($data->lesson_id == '5')
+                                            <td>5. Big Data</td>
+                                        @elseif($data->lesson_id == '10')
+                                            <td>10. Cyber Security</td>
+                                        @elseif($data->lesson_id == '6')
+                                            <td>6. Cloud Computing</td>
+                                        @elseif($data->lesson_id == '3')
+                                            <td>3. Additive Manufacturing</td>
+                                        @elseif($data->lesson_id == '7')
+                                            <td>7. Advanced Simulation</td>
+                                        @elseif($data->lesson_id == '9')
+                                            <td>9. Universal Integration</td>
+                                        @elseif($data->lesson_id == '8')
+                                            <td>8. Autonamous Robot</td>
                                         @endif
                                     </tr>
                                 @endforeach
