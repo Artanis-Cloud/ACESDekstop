@@ -31,7 +31,7 @@ class SpamEmail extends Mailable
         $victim = $this->victim;
         return $this->to($victim->email, $victim->name)
             ->from(env('MAIL_FROM_ADDRESS'))
-            ->subject('Jemputan Ke Program Latihan')
+            ->subject('Jemputan Ke Program Latihan: THE ACES-ECER JOBS TRAIN AND PLACE PROGRAM')
             ->view('mail.template');
     }
 }
