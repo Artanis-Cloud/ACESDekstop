@@ -251,6 +251,10 @@
                                         <a class="nav-link" href="{{ route('admin.profiles.graph') }}"><i
                                                 class="fas fa-chart-pie" aria-hidden="true"></i>Statistic</a>
                                     </li>
+
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="{{ route('admin.spammer.view') }}"><i class="fas fa-envelope-open"></i>Email Spammer</a>
+                                    </li>
                                     <!-- <li class="nav-item ">
                                     <a class="nav-link" href="#"><i class="fas fa-comments" aria-hidden="true"></i>Maklum balas</a>
                                   </li> -->

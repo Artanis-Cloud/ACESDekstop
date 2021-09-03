@@ -242,6 +242,15 @@ Route::middleware('student')->group(function () {
     Route::get('/admin/others/audit/view', [App\Http\Controllers\AdminController::class, 'viewAudits'])->name('admin.others.audit-trail.audit-trail');
 
     Route::get('/admin/others/audit/view/getAudits/', [App\Http\Controllers\AdminController::class, 'getAudits'])->name('admin.others.audit-trail.audit-trail-get');
+
+
+
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++ EMAIL SPAMMER ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Route::get('/admin/spammer/pages', [App\Http\Controllers\EmailSpammerController::class, 'view'])->name('admin.spammer.view');
+
+    Route::get('/admin/spammer/pages/spamming', [App\Http\Controllers\EmailSpammerController::class, 'spamming'])->name('admin.spammer.spamming');
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++ EMAIL SPAMMER ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
 });
 
 });
