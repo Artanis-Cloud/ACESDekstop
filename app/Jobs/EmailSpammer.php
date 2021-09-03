@@ -47,5 +47,6 @@ class EmailSpammer implements ShouldQueue
         $test = $this->test;
 
         $test->notify(new Spam());
+
     }
 }
