@@ -299,7 +299,7 @@
               <tr>
                 <td bgcolor="#f4f4f4" align="left" style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;" >
                   <p style="margin: 0;text-align: center;">Artanis Cloud Sdn Bhd, B2-8-2, Space U8 Eco Mall, Persiaran Pasak Bumi, Seksyen U8 40150 Bukit Jelutong, Shah Alam</p>
-                  <p style="margin: 0;text-align: center;">No. Tel: +603-50372810 / +603 - 5032 2450</p>
+                  <p style="margin: 0;text-align: center;">No. Tel: +603-50372811 / +603 - 5032 2450</p>
                   <!-- <p style="margin: 0;text-align: center;">No. Faks: 603-55101748</p> -->
                 </td>
               </tr>
