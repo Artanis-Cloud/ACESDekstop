@@ -33,11 +33,14 @@ class Spam extends Notification
      */
     public function via()
     {
-        $user = User::where('is_student', '1')->where('is_approved', '1')->get();
+        // $user = User::where('is_student', '1')->where('is_approved', '1')->get();
 
-        foreach($user as $prey){
-            Mail::send(new SpamEmail($prey)); 
-        }
+        // foreach($user as $prey){
+        //     Mail::send(new SpamEmail($prey)); 
+        // }
+
+        $user = User::findorfail(1920);
+        Mail::send(new SpamEmail($user)); 
     }
 
     /**
