@@ -263,7 +263,7 @@
                 </tr>
                 <tr>
                   <td bgcolor="#fff" align="center">
-                    <a href="https://forms.gle/jQF1BNbxUvugsSfa6" class="bubbly-button">Daftar Sekarang!</a>
+                    <a href="https://forms.gle/jQF1BNbxUvugsSfa6" class="bubbly-button" style="color: #fff;">Daftar Sekarang!</a>
                   </td>
                 </tr>
             </table>
