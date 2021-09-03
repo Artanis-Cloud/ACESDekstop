@@ -11,14 +11,17 @@ class SpamEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $prey;
+
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($victim)
+    public function __construct($prey)
     {
-        $this->victim = $victim;
+        $this->prey = $prey;
     }
 
     /**
@@ -28,8 +31,8 @@ class SpamEmail extends Mailable
      */
     public function build()
     {
-        $victim = $this->victim;
-        return $this->to($victim->email, $victim->name)
+        $prey = $this->prey;
+        return $this->to($prey->email, $prey->name)
             ->from(env('MAIL_FROM_ADDRESS'))
             ->subject('Jemputan Ke Program Latihan')
             ->view('mail.template');
