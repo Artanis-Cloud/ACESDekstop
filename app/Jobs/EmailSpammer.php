@@ -20,15 +20,15 @@ class EmailSpammer implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $test;
+    protected $prey;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($test)
+    public function __construct($prey)
     {
-        $this->test = $test;
+        $this->prey = $prey;
     }
 
     /**
@@ -38,15 +38,24 @@ class EmailSpammer implements ShouldQueue
      */
     public function handle()
     {
+        // $prey = $this->prey;
+        // dd("masuk job");
+
+        $test = User::get()->first(); //random data.
+
+        $test->notify(new Spam($this->prey));
+
         // $user = User::where('is_student', '1')->where('is_approved', '1')->get();
 
+        // $test = $this->test;
+
         // foreach ($user as $prey) {
-        //     Mail::send(new SpamEmail($prey));
         // }
 
-        $test = $this->test;
+        // +++++++++++++++++++++++++++++++  USE THIS TO TEST EMAIL +++++++++++++++++++++++++++++++++++++++++++++
+        // $user = User::findorfail(1920);
+        // Mail::send(new SpamEmail($user)); 
 
-        $test->notify(new Spam());
 
     }
 }

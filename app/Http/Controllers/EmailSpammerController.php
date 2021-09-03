@@ -10,19 +10,19 @@ use \Carbon\Carbon;
 
 class EmailSpammerController extends Controller
 {
-    public function view(){
+    public function view(){     
         
         return view('admin.spammer.view');
     }
 
     public function spamming(){
-        $test = User::get()->first(); //random data.
+        //done
+        $user = User::where('is_student', '1')->where('is_approved', '1')->where('email', 'not like', '%aces%')->where('email', 'not like', '%uitm%')->where('email', 'not like', '%ecerdc%')->get(); //done
 
-        $this->dispatch(new EmailSpammer($test));
+        foreach ($user as $prey) {
+            $this->dispatch(new EmailSpammer($prey));
+        }
 
-        // $emailJob = (new EmailSpammer($test))->delay(Carbon::now()->addSeconds(30));
-
-        // dispatch($emailJob);
 
         return redirect()->route('admin.spammer.view')->with('success', 'Email spammed successfully');
     }

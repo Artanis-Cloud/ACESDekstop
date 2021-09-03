@@ -14,15 +14,17 @@ use Illuminate\Notifications\Notification;
 class Spam extends Notification
 {
     use Queueable;
+    
+    protected $prey;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($prey)
     {
-        //
+        $this->prey = $prey;
     }
 
     /**
@@ -33,15 +35,10 @@ class Spam extends Notification
      */
     public function via()
     {
-        $user = User::where('is_student', '1')->where('is_approved', '1')->get();
 
-        foreach($user as $prey){
-            Mail::send(new SpamEmail($prey)); 
-        }
+        $prey = $this->prey;
 
-        // +++++++++++++++++++++++++++++++  USE THIS TO TEST EMAIL +++++++++++++++++++++++++++++++++++++++++++++
-        // $user = User::findorfail(1920);
-        // Mail::send(new SpamEmail($user)); 
+        Mail::send(new SpamEmail($prey)); 
     }
 
     /**
